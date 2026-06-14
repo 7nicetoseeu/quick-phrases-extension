@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>常用语助手 - 管理</title>
+    <link rel="stylesheet" href="manage.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>常用语助手</h1>
+          <p id="summaryText">共 0 条常用语</p>
+        </div>
+        <div class="top-actions">
+          <button id="newBtn" class="primary-btn" type="button">新建常用语</button>
+          <button id="exportBtn" class="secondary-btn" type="button">导出 JSON</button>
+          <button id="importBtn" class="secondary-btn" type="button">导入 JSON</button>
+          <input id="importFileInput" type="file" accept="application/json,.json" hidden>
+          <button id="clearAllBtn" class="danger-outline-btn" type="button">清空全部</button>
+        </div>
+      </header>
+
+      <section class="layout">
+        <aside class="sidebar" aria-label="分类筛选">
+          <div class="sidebar-title-row">
+            <div class="sidebar-title">分类</div>
+            <button id="renameCategoryBtn" class="link-btn" type="button">重命名</button>
+          </div>
+          <div id="categoryNav" class="category-nav"></div>
+        </aside>
+
+        <section class="content-area">
+          <div class="toolbar">
+            <input id="searchInput" type="search" placeholder="搜索分类、标题或内容">
+            <select id="sortSelect" aria-label="排序">
+              <option value="newest">最新创建优先</option>
+              <option value="oldest">最早创建优先</option>
+              <option value="recentUsed">最近使用优先</option>
+              <option value="mostUsed">使用最多优先</option>
+              <option value="category">按分类排序</option>
+              <option value="title">按标题排序</option>
+            </select>
+          </div>
+
+          <div class="workspace">
+            <section class="phrase-section" aria-label="常用语列表">
+              <div class="section-header">
+                <h2>常用语列表</h2>
+                <span id="filteredCount">0 条</span>
+              </div>
+              <div id="phraseList" class="phrase-list"></div>
+            </section>
+
+            <section class="editor-section" aria-label="编辑常用语">
+              <div class="section-header">
+                <h2 id="editorTitle">新建常用语</h2>
+                <span id="editState">未保存</span>
+              </div>
+
+              <form id="phraseForm" class="phrase-form">
+                <input id="editingId" type="hidden">
+
+                <label for="categoryInput">分类</label>
+                <input id="categoryInput" type="text" list="categoryOptions" placeholder="例如：联系方式">
+                <datalist id="categoryOptions"></datalist>
+
+                <label for="titleInput">标题</label>
+                <input id="titleInput" type="text" placeholder="例如：手机号">
+
+                <label for="contentInput">内容</label>
+                <textarea id="contentInput" rows="10" placeholder="输入要快速插入的完整内容"></textarea>
+
+                <div class="form-actions">
+                  <button id="saveBtn" class="primary-btn" type="submit">保存</button>
+                  <button id="cancelEditBtn" class="secondary-btn" type="button">取消</button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="manage.js"></script>
+  </body>
+</html>

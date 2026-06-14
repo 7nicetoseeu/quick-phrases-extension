@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>常用语助手</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup">
+      <header class="header">
+        <h1>常用语助手</h1>
+        <button id="manageBtn" class="text-btn" type="button">管理全部</button>
+      </header>
+
+      <section class="form-panel" aria-label="新增常用语">
+        <label for="categoryInput">分类</label>
+        <input id="categoryInput" type="text" placeholder="例如：联系方式">
+
+        <label for="titleInput">标题</label>
+        <input id="titleInput" type="text" placeholder="例如：手机号">
+
+        <label for="contentInput">内容</label>
+        <textarea id="contentInput" rows="4" placeholder="输入要快速插入的内容"></textarea>
+
+        <div class="button-row">
+          <button id="addBtn" class="primary-btn" type="button">新增</button>
+          <button id="clearBtn" class="secondary-btn" type="button">清空全部</button>
+        </div>
+      </section>
+
+      <section class="list-panel" aria-label="常用语列表">
+        <input id="quickSearchInput" class="quick-search" type="search" placeholder="搜索并快速插入或复制">
+        <div id="phraseList" class="phrase-list"></div>
+      </section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
